@@ -6,6 +6,15 @@
   background-color: white;
 }
 
+body{
+  background-color: grey;
+}
+
+.app_stat{
+  display : flex;
+  justify-content: space-between;
+}
+
 .app_header{
   display : flex;
   justify-content: space-between;
