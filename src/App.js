@@ -10,6 +10,9 @@ import './App.css';
 import Box from './Box.js';
 import Map from './Map.js';
 import Table from './Table';
+import {sortData} from './utility';
+import Graph from './Graph.js';
+
 
 function App() {
   
@@ -17,6 +20,7 @@ function App() {
   const [country,setCountry] =useState("worldwide");
   const [countryInfo,setCountryInfo] = useState({});
   const [tableData,setTableData] = useState([]);
+  const [casesType, setCasesType] = useState("cases");
 
 
   useEffect(() => {
@@ -37,7 +41,8 @@ function App() {
           name: country.country,
           value: country.countryInfo.iso2
         }))
-        setTableData(data);
+        let sortedData = sortData(data);
+        setTableData(sortedData);
         setCountries(countries);
       })
     }
@@ -80,9 +85,12 @@ function App() {
           </FormControl>
         </div>
         <div className ="app_stat">
-          <Box title = "Covid Cases" cases ={countryInfo.todayCases} total ={countryInfo.cases} />
-          <Box title = "Recovered" cases ={countryInfo.todayRecovered} total ={countryInfo.recovered} />
-          <Box title = "Deaths" cases ={countryInfo.todayDeaths} total ={countryInfo.deaths} />
+          <Box  onClick={(e) => setCasesType("cases")}
+          title = "Covid Cases" cases ={countryInfo.todayCases} total ={countryInfo.cases}  />
+          <Box onClick={(e) => setCasesType("recovered")}
+          title = "Recovered" cases ={countryInfo.todayRecovered} total ={countryInfo.recovered} />
+          <Box onClick={(e) => setCasesType("deaths")}
+          title = "Deaths" cases ={countryInfo.todayDeaths} total ={countryInfo.deaths} />
         </div>
 
         <Map />
@@ -93,7 +101,8 @@ function App() {
             <Table countries={tableData} />
           </CardContent>
           <CardContent>
-            <h3>graph will be here</h3>
+            <h3>Worldwide new {casesType}</h3>
+            <Graph casesType={casesType} />
           </CardContent>
         </Card>
 
