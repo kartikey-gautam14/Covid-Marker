@@ -2,17 +2,27 @@
   margin: 0;
 }
 
-.app_dropdown{
-  background-color: white;
-}
-
 body{
   background-color: grey;
 }
 
+.app{
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
 .app_stat{
-  display : flex;
+  display: flex;
   justify-content: space-between;
+  
+}
+.left{
+  flex :0.9;
+}
+
+.app_dropdown{
+  background-color: white;
 }
 
 .app_header{
@@ -21,3 +31,14 @@ body{
   margin-bottom: 20px;
   align-items: center;
 }
+
+@media (max-width: 990px) {
+  .app {
+    flex-direction: column;
+  }
+}
+
+
+
+
+

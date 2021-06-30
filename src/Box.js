@@ -8,13 +8,13 @@ function Box({title,cases,total}){
         <Card>
             <CardContent>
                 <Typography color="textPrimary">
-                    {title};
+                    {title}
                 </Typography>
                 <Typography color="textPrimary">
-                    {cases};
+                    {cases}
                 </Typography>
                 <Typography color="textPrimary">
-                    {total} Total;
+                    {total} Total
                 </Typography>
             </CardContent>
         </Card>
