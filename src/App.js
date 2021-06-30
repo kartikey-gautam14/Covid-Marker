@@ -8,13 +8,15 @@ import {
 } from "@material-ui/core"
 import './App.css';
 import Box from './Box.js';
-import Map from './Map.js'
+import Map from './Map.js';
+import Table from './Table';
 
 function App() {
   
   const [countries,setCountries] = useState([]);
   const [country,setCountry] =useState("worldwide");
   const [countryInfo,setCountryInfo] = useState({});
+  const [tableData,setTableData] = useState([]);
 
 
   useEffect(() => {
@@ -35,6 +37,7 @@ function App() {
           name: country.country,
           value: country.countryInfo.iso2
         }))
+        setTableData(data);
         setCountries(countries);
       })
     }
@@ -86,7 +89,8 @@ function App() {
       </div> 
         <Card className ="right">
           <CardContent>
-            <h3>table will be here</h3>
+            <h3>Country according to cases</h3>
+            <Table countries={tableData} />
           </CardContent>
           <CardContent>
             <h3>graph will be here</h3>
