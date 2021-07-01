@@ -6,6 +6,7 @@ function Box({title,cases,total}){
     return (
         
         <Card>
+            
             <CardContent>
                 <Typography color="textPrimary">
                     {title}
