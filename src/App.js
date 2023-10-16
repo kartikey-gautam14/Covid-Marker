@@ -55,6 +55,8 @@ function App() {
 
   },[])
 
+  const a = ['a', 'b', 'c'];
+
   const countryChange = (async(event)=>{
     const countryCode=event.target.value; 
     console.log("kjdnuv  ",countryCode);
