@@ -56,6 +56,7 @@ function App() {
   },[])
 
   const a = ['a', 'b', 'c'];
+  a.sort();
 
   const countryChange = (async(event)=>{
     const countryCode=event.target.value; 
